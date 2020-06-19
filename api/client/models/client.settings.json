@@ -1,0 +1,24 @@
+{
+  "kind": "collectionType",
+  "collectionName": "clients",
+  "info": {
+    "name": "CLIENT"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "OGRN": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "name": {
+      "type": "string"
+    },
+    "city": {
+      "type": "string"
+    }
+  }
+}

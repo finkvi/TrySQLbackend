@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/sqlcategories",
+      "handler": "sqlcategory.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/sqlcategories/count",
+      "handler": "sqlcategory.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/sqlcategories/:id",
+      "handler": "sqlcategory.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/sqlcategories",
+      "handler": "sqlcategory.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/sqlcategories/:id",
+      "handler": "sqlcategory.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/sqlcategories/:id",
+      "handler": "sqlcategory.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

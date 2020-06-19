@@ -1,0 +1,23 @@
+{
+  "kind": "collectionType",
+  "collectionName": "sqltasks",
+  "info": {
+    "name": "sqltask"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "task": {
+      "type": "richtext"
+    },
+    "sqlcategory": {
+      "model": "sqlcategory",
+      "via": "sqltasks"
+    },
+    "SQLexample": {
+      "type": "richtext"
+    }
+  }
+}

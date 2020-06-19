@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/right-answers",
+      "handler": "right-answer.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/right-answers/count",
+      "handler": "right-answer.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/right-answers/:id",
+      "handler": "right-answer.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/right-answers",
+      "handler": "right-answer.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/right-answers/:id",
+      "handler": "right-answer.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/right-answers/:id",
+      "handler": "right-answer.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "leads",
+  "info": {
+    "name": "lead"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "email": {
+      "type": "email",
+      "required": true
+    },
+    "phone": {
+      "type": "string",
+      "required": true
+    },
+    "answers": {
+      "via": "lead",
+      "collection": "answer"
+    }
+  }
+}

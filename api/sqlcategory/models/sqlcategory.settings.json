@@ -1,0 +1,23 @@
+{
+  "kind": "collectionType",
+  "collectionName": "sqlcategories",
+  "info": {
+    "name": "sqlcategory"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "score": {
+      "type": "integer"
+    },
+    "sqltasks": {
+      "via": "sqlcategory",
+      "collection": "sqltask"
+    }
+  }
+}

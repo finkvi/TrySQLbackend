@@ -1,0 +1,39 @@
+version: "3.7"
+
+volumes:
+    db_vol:
+        name: ${DATABASE_CONTAINER_VOLUME}
+
+services:
+    strapi:
+        container_name: strapi
+        image: strapi/strapi
+        restart: always
+        environment:
+            - DATABASE_CLIENT=postgres
+            - DATABASE_HOST=db
+            - DATABASE_PORT=${DATABASE_PORT}
+            - DATABASE_NAME=${DATABASE_NAME}
+            - DATABASE_USERNAME=${DATABASE_USERNAME}
+            - DATABASE_PASSWORD=${DATABASE_PASSWORD}
+            - STRAPI_CMD=${STRAPI_CMD}
+        ports:
+            - 127.0.0.1:1337:1337
+        volumes:
+            - ${DEPLOY_PATH}/latest/:/srv/app
+        depends_on:
+            - db
+        command: bash -c "sleep 5; ${STRAPI_CMD}"
+        user: ${CURRENT_UID}
+    db:
+        container_name: strapi_pg_db
+        image: postgres
+        restart: always
+        ports:
+            - ${DATABASE_PORT_EXPOSE}:${DATABASE_PORT}
+        environment:
+            POSTGRES_USER: ${DATABASE_USERNAME}
+            POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
+            POSTGRES_DB: ${DATABASE_NAME}
+        volumes:
+            - db_vol:/var/lib/postgresql/data

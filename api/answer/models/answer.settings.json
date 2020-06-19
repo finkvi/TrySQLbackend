@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "answers",
+  "info": {
+    "name": "answer"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "answer": {
+      "type": "text",
+      "required": true
+    },
+    "description": {
+      "type": "text"
+    },
+    "sqltask": {
+      "model": "sqltask"
+    },
+    "lead": {
+      "model": "lead",
+      "via": "answers"
+    }
+  }
+}

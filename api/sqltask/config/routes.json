@@ -1,0 +1,60 @@
+{
+  "routes": [
+    {
+      "method": "POST",
+      "path": "/sqltasks/variant",
+      "handler": "variant.variant",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/sqltasks",
+      "handler": "sqltask.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/sqltasks/count",
+      "handler": "sqltask.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/sqltasks/:id",
+      "handler": "sqltask.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/sqltasks",
+      "handler": "sqltask.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/sqltasks/:id",
+      "handler": "sqltask.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/sqltasks/:id",
+      "handler": "sqltask.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

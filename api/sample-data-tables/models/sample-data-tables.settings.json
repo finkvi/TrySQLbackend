@@ -1,0 +1,21 @@
+{
+  "kind": "collectionType",
+  "collectionName": "sample_data_tables",
+  "info": {
+    "name": "SampleDataTables"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "table": {
+      "type": "string",
+      "unique": true,
+      "required": true
+    },
+    "desc": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "kind": "collectionType",
+  "collectionName": "justtests",
+  "info": {
+    "name": "JUSTTEST"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "one": {
+      "type": "string"
+    },
+    "two": {
+      "type": "text"
+    },
+    "three": {
+      "type": "integer"
+    },
+    "four": {
+      "type": "biginteger"
+    },
+    "five": {
+      "type": "decimal"
+    },
+    "six": {
+      "type": "float"
+    },
+    "seven": {
+      "type": "date"
+    },
+    "eight": {
+      "type": "datetime"
+    },
+    "nine": {
+      "type": "boolean"
+    },
+    "ten": {
+      "type": "email"
+    },
+    "eleven": {
+      "type": "password"
+    },
+    "twelve": {
+      "type": "enumeration",
+      "enum": [
+        "Odin",
+        "Dva"
+      ]
+    },
+    "json": {
+      "type": "json"
+    },
+    "uid": {
+      "type": "uid"
+    },
+    "gogogo": {
+      "type": "enumeration",
+      "enum": [
+        "qqw",
+        "qwe",
+        "edfs"
+      ]
+    },
+    "contaner": {
+      "type": "string"
+    }
+  }
+}

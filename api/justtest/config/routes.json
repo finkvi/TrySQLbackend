@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/justtests",
+      "handler": "justtest.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/justtests/count",
+      "handler": "justtest.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/justtests/:id",
+      "handler": "justtest.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/justtests",
+      "handler": "justtest.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/justtests/:id",
+      "handler": "justtest.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/justtests/:id",
+      "handler": "justtest.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

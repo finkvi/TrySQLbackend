@@ -1,0 +1,48 @@
+{
+  "kind": "collectionType",
+  "collectionName": "cars",
+  "info": {
+    "name": "CAR"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "VIN": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "marque": {
+      "type": "string"
+    },
+    "model": {
+      "type": "string"
+    },
+    "power": {
+      "type": "integer"
+    },
+    "engine": {
+      "type": "string"
+    },
+    "transmission": {
+      "type": "string"
+    },
+    "color": {
+      "type": "string"
+    },
+    "kilometrage": {
+      "type": "integer"
+    },
+    "year_of_make": {
+      "type": "integer"
+    },
+    "price": {
+      "type": "integer"
+    },
+    "sold_flag": {
+      "type": "boolean"
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "staff",
+  "info": {
+    "name": "STAFF"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "first_name": {
+      "type": "string"
+    },
+    "last_name": {
+      "type": "string"
+    },
+    "experience": {
+      "type": "integer"
+    },
+    "salary": {
+      "type": "integer"
+    },
+    "sex": {
+      "type": "enumeration",
+      "enum": [
+        "M",
+        "F"
+      ]
+    }
+  }
+}

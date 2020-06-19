@@ -1,0 +1,24 @@
+{
+  "kind": "collectionType",
+  "collectionName": "right_answers",
+  "info": {
+    "name": "RightAnswer"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "EtalonSQL": {
+      "type": "text",
+      "required": true
+    },
+    "DescriptionSQL": {
+      "type": "text"
+    },
+    "sqltask": {
+      "unique": true,
+      "model": "sqltask"
+    }
+  }
+}

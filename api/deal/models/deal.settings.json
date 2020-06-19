@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "deals",
+  "info": {
+    "name": "DEAL"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "car_id": {
+      "unique": true,
+      "model": "car"
+    },
+    "deal_date": {
+      "type": "date"
+    },
+    "emp_id": {
+      "model": "staff"
+    },
+    "client_id": {
+      "model": "client"
+    }
+  }
+}
