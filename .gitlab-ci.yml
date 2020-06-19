@@ -1,0 +1,43 @@
+image: alpine:latest
+
+before_script:
+    #- env
+    - 'which ssh-agent || ( apk update && apk add openssh-client)'
+    - 'which rsync || (apk add rsync)'
+    - eval $(ssh-agent -s)
+    - mkdir -p ~/.ssh
+    - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
+    - ssh-keyscan -H $DEPLOY_HOST >> ~/.ssh/known_hosts
+  
+deploy_production:
+    stage: deploy
+    tags: 
+        - trysql.online
+        - backend
+    script:
+        #Create .env file and send to production
+
+        - echo "DATABASE_HOST=${DATABASE_HOST}" >> env
+        - echo "DATABASE_PORT=${DATABASE_PORT}" >> env
+        - echo "DATABASE_NAME=${DATABASE_NAME}" >> env
+        - echo "DATABASE_USERNAME=${DATABASE_USERNAME}" >> env
+        - echo "DATABASE_PASSWORD=${DATABASE_PASSWORD}" >> env
+        - echo "DATABASE_PORT_EXPOSE=${DATABASE_PORT_EXPOSE}" >> env
+        - echo "DATABASE_CONTAINER_VOLUME=${DATABASE_CONTAINER_VOLUME}" >> env
+        - echo "DEPLOY_HOST=${DEPLOY_HOST}" >> env
+        - echo "DEPLOY_USER=${DEPLOY_USER}" >> env
+        - echo "DEPLOY_PATH=${DEPLOY_PATH}" >> env
+        - echo "NODE_ENV=production" >> env
+        - if [ -z "${CI_COMMIT_TAG}" ]; then HOT_DEPLOY="true"; else HOT_DEPLOY="false"; fi
+        - if [ -z "${CI_COMMIT_TAG}" ]; then DEPLOY_FOLDER=${CI_COMMIT_SHORT_SHA}_hot; else DEPLOY_FOLDER=${CI_COMMIT_SHORT_SHA}_${CI_COMMIT_TAG}; fi
+        #- if [ "${CI_COMMIT_TAG}" == "deploy" ]; then HOT_DEPLOY="false"; else HOT_DEPLOY="true"; fi
+        - echo "HOT_DEPLOY=${HOT_DEPLOY}" >> env
+
+        #Deploy script
+        - rsync -rP $CI_PROJECT_DIR/* $DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_PATH/$DEPLOY_FOLDER/
+        - | 
+            ssh $DEPLOY_USER@$DEPLOY_HOST << EOF
+                cd $DEPLOY_PATH/$DEPLOY_FOLDER/
+                mv env .env
+                ./sh_utils/deploy.sh
+            EOF
